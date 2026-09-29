@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dpqppa84am6wm"]
+
+[ext_resource type="Script" uid="uid://bk8kdb2pwfi0f" path="res://bandeira.gd" id="1_bqjrj"]
+[ext_resource type="Texture2D" uid="uid://cboc1o1nd6f1h" path="res://recursos/kenney_tiny-battle/Tilemap/tilemap_packed.png" id="2_kh5s4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftte0"]
+atlas = ExtResource("2_kh5s4")
+region = Rect2(256, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42sap"]
+atlas = ExtResource("2_kh5s4")
+region = Rect2(272, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bqjrj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftte0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42sap")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh5s4"]
+size = Vector2(10, 12)
+
+[node name="bandeira" type="Area2D" unique_id=1784108941]
+script = ExtResource("1_bqjrj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=966133080]
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(0.6875, 0.6875)
+sprite_frames = SubResource("SpriteFrames_bqjrj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2015806893]
+shape = SubResource("RectangleShape2D_kh5s4")
+
+[node name="Label" type="Label" parent="." unique_id=904516462]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Parabéns!!!
+"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
