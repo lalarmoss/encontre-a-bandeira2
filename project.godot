@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="encontre a bandeira"
-run/main_scene="uid://bnjqkcx3ag1hj"
+run/main_scene="uid://e8w0untuq5ae"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

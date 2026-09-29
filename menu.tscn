@@ -1,33 +1,94 @@
 [gd_scene format=3 uid="uid://e8w0untuq5ae"]
 
-[node name="Control" type="Control" unique_id=1165487608]
+[ext_resource type="Texture2D" uid="uid://cin4n537f2dw6" path="res://recursos/kenney_tiny-battle/Tiles/tile_0000.png" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://b2fg13ohmc2xp" path="res://menu.gd" id="1_ouk20"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vsb4k"]
+texture = ExtResource("1_lti8b")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
+bg_color = Color(0.3742231, 0.69693685, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hy44"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
+bg_color = Color(0.050955743, 0.13161924, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecwwl"]
+bg_color = Color(0.37254903, 0.69803923, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l48gv"]
+bg_color = Color(0.050980393, 0.13333334, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lti8b"]
+bg_color = Color(0.6863288, 0.15632096, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kk3ma"]
+bg_color = Color(0.4452935, 0, 0.08277617, 1)
+
+[node name="menu" type="Control" unique_id=1165487608]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ouk20")
 
 [node name="Panel" type="Panel" parent="." unique_id=2117924483]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vsb4k")
 
 [node name="Label" type="Label" parent="." unique_id=1805972518]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.0
+offset_top = 12.0
+offset_right = 79.0
+offset_bottom = 35.0
+grow_horizontal = 2
+text = "Encontre a Bandeira"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=390239884]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="fase1" type="Button" parent="VBoxContainer" unique_id=605859047]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ytr4m")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_4hy44")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mae5d")
+text = "Fase 1"
 
 [node name="fase2" type="Button" parent="VBoxContainer" unique_id=1740084569]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ecwwl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l48gv")
+text = "Fase 2"
 
 [node name="sair" type="Button" parent="VBoxContainer" unique_id=342903599]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_lti8b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kk3ma")
+text = "Sair"
+
+[connection signal="pressed" from="VBoxContainer/fase1" to="." method="_on_fase_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/fase2" to="." method="_on_fase_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/sair" to="." method="_on_sair_pressed"]
